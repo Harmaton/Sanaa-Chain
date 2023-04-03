@@ -77,7 +77,7 @@ const CreatePost = () => {
         setGeneratingImg(true);
         const response = await openai.createImage({
           prompt: form.prompt,
-          n: 8,
+          n: 2,
           size: "512x512",
         });
         console.log("Response", response);
