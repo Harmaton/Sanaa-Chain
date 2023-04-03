@@ -21,14 +21,14 @@ export default function Home() {
       toast.loading(
         "Currently Logged in. Redirecting to Image generation page...",
         {
-          duration: 4000,
+          duration: 1000,
           position: "top-right",
         }
       );
 
       setTimeout(() => {
         router.push("/generate");
-      }, 4000);
+      }, 1000);
     }
   });
 

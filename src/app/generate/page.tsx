@@ -37,12 +37,12 @@ function PhotoGallery({
             height={512}
             className='rounded-md hover:scale-110 transition-all duration-500 cursor-pointer border-2 border-[#F2CD5C]'
           />
-          <div className='absolute inset-0 flex flex-col justify-between p-4 opacity-0 hover:opacity-100 transition duration-500 ease-in-out backdrop-filter backdrop-blur-md'>
+          <div className='absolute inset-0 flex flex-col justify-between p-4 opacity-0 hover:opacity-100 transition duration-300 ease-in-out backdrop-filter backdrop-blur-md'>
             <h2 className='text-justify text-white text-base italic'>
               {prompt}
             </h2>
             <div className='flex justify-end'>
-              <HeartIconOutline className='w-8 h-5 mx-1 cursor-pointer  ' />
+              <HeartIconOutline className='w-10 h-10 mx-1 cursor-pointer  ' />
               <HeartIconSolid className='w-8 h-5 mx-1 cursor-pointer text-rose-500' />
             </div>
           </div>
@@ -121,14 +121,14 @@ const CreatePost = () => {
         setLoading(false);
       }
     } else {
-      alert("Please generate an image with proper details");
+      alert("Please use  proper details generate an image");
     }
   };
 
   const { data: session, status } = useSession();
 
   if (!session && status === "unauthenticated") {
-    toast.success("Redirecting... Log in to generate images", {
+    toast.success("Log in ... ", {
       style: {
         border: "1px solid #713200",
         padding: "16px",
@@ -149,7 +149,7 @@ const CreatePost = () => {
         <Link
           href='/'
           className='mt-[24px] text-[24px] font-extrabold text-white sm:text-[32px] cursor-pointer'>
-          SANAACHAIN
+          SANAA - CHAIN
         </Link>
         {/* <p className="mt-[16px] flex-1 text-[18px] font-normal leading-[32.4px] text-[#B0B0B0]">
           Generate an imaginative image and share it with the community
@@ -160,7 +160,7 @@ const CreatePost = () => {
         onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5 flex-1'>
           <FormField
-            labelName='Describe your Image here:'
+            labelName='We draw your wish/prompt!'
             type='text'
             name='prompt'
             placeholder='An Impressionist oil painting of sunflowers in a purple vase…'
@@ -174,12 +174,13 @@ const CreatePost = () => {
             <button
               type='button'
               onClick={generateImage}
-              className={`text-xl italic  bg-[#d8a815] font-extrabold rounded-md   px-5 py-2.5 text-center w-1/2 md:w-1/4 justify-end disabled:bg-slate-400 ${
+              className={`text-xl italic  bg-[#d8a815] font-extrabold rounded-md   px-5 py-2.5 text-center w-1/2 md:w-1/4 justify-end disabled:bg-gray-400 ${
                 generatingImg ? "animate-pulse" : ""
               }`}
-              disabled={generatingImg}>
+              disabled={!form.prompt}>
               {generatingImg ? "Generating..." : "Generate"}
             </button>
+
           </div>
           <div className='relative  rounded-lg  w-full p-3 min-h-[150px] flex justify-center items-center '>
             {generatingImg ? (
