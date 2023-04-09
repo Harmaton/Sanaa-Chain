@@ -38,12 +38,14 @@ const Footer = () => (
                 alt={social.name}
                 className="cursor-pointer object-contain"
               />
+
               // <img
               //   key={social.name}
               //   src={social.url}
               //   alt={social.name}
               //   className="h-[24px] w-[24px] cursor-pointer object-contain"
               // />
+              
             ))}
           </div>
         </div>

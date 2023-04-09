@@ -31,6 +31,7 @@ export default function Home() {
       }, 1000);
     }
   });
+  
 
   return (
     <main className="overflow-hidden bg-primary-black min-h-screen ">
